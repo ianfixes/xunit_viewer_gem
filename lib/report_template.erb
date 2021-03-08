@@ -99,7 +99,7 @@
     <script>
         window.title = "<%= @title %>"
         window.brand = "<%= @brand_logo_url %>"
-        window.files = <%= @filenames.map { |n| {file: n, contents: Base64.strict_encode64(LZUTF8.compress(IO.read(n)))} }.to_json  %> // blarg
+        window.files = <%= @files.map { |n, c| {file: n, contents: Base64.strict_encode64(LZUTF8.compress(c))} }.to_json  %> // blarg
     </script>
     <script>
         /*! For license information please see 2.6e9d3b50.chunk.js.LICENSE.txt */

@@ -6,9 +6,27 @@ Ruby wrapper for creating [lukejpreston/xunit-viewer](https://github.com/lukejpr
 
 ## Usage
 
+If your reports exist on disk, providing an array of filenames is sufficient to generate the report:
+
 ```ruby
   output = XunitViewer::Renderer.new(
-    Dir["reports/*.xml"],
+    Dir["reports/*.xml"],                      # An array of filenames
+    title: "My Giant Report Title",            # probably your repository name
+    brand_logo_url: "http://site.com/img.png", # or omit completely for default logo
+    favicon_url:    "http://site.com/fav.ico", # or omit completely
+  ).result
+
+  File.write("my_report.html", output)
+```
+
+Alternately, if your reports exist in memory (as strings), you may pass a hash (file contents keyed on filename) to the function:
+
+
+```ruby
+  output = XunitViewer::Renderer.new(
+    {
+      "my_report.xml" => '<?xml version="1.0" encoding="UTF-8"?><testsuite> etc etc etc'
+    },                                         # A hash of filename => content
     title: "My Giant Report Title",            # probably your repository name
     brand_logo_url: "http://site.com/img.png", # or omit completely for default logo
     favicon_url:    "http://site.com/fav.ico", # or omit completely

@@ -28,7 +28,7 @@ File.open(ARGV.first, "w") do |out|
     }.each { |find, varname| line.gsub!(find.to_s, "<%= @#{varname} %>") }
 
     if line.include?('window.files = [{"file":"/blarg.xml"')
-      ruby_code = "@filenames.map { |n| {file: n, contents: Base64.strict_encode64(LZUTF8.compress(IO.read(n)))} }.to_json "
+      ruby_code = "@files.map { |n, c| {file: n, contents: Base64.strict_encode64(LZUTF8.compress(c))} }.to_json "
       line = "        window.files = <%= #{ruby_code} %> // blarg"
     end
 

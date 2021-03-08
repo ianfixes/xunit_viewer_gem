@@ -7,7 +7,7 @@
 /spec/reports/
 vendor
 *.gem
-spec/demo.html
+spec/demo*.html
 .DS_Store
 
 # rspec failure tracking
