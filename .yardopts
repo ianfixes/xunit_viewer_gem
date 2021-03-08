@@ -1,0 +1,3 @@
+-M redcarpet -m markdown
+
+lib/xunit_viewer.rb lib/**/*.rb
