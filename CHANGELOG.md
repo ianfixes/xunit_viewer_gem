@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 ### Changed
+- Pinned `xunit-viewer` to `7.0.3` so that it properly exits
 
 ### Deprecated
 
